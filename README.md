@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Weather App 🌤️
 
-## Getting Started
+A single-page weather forecast application built with **Next.js**.
 
-First, run the development server:
+🔗 **Live demo**: [weather-app-polinaigrushkinas-projects.vercel.app](https://weather-app-polinaigrushkinas-projects.vercel.app/)
+
+## ✨ Features
+
+- 🔍 **Add and remove cities** to track their current weather
+- ♻️ **Manual refresh** for each city's weather data
+- 🗑️ **Delete button** on each city card to remove it from the list
+- 📦 **Persistent storage** using Zustand's `persist` middleware and `localStorage`
+- 📄 **City cards** display:
+  - Current temperature and weather conditions
+  - Refresh and delete buttons
+  - Clickable area to navigate to a detailed city view
+- 📈 **Detailed city view** includes:
+  - Hourly temperature chart for the next 24 hours (powered by Chart.js)
+  - Data fetched from the `/forecast` endpoint of OpenWeatherMap API
+
+## 🧰 Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **Language**: TypeScript
+- **Styling**: SCSS Modules
+- **State Management**: [Zustand](https://zustand-demo.pmnd.rs/)  
+  → with [`middleware.persist`](https://docs.pmnd.rs/zustand/integrations/persisting-store-data) to sync state to `localStorage`
+- **Data Fetching & Caching**: [TanStack Query (React Query)](https://tanstack.com/query/latest)
+- **Forms & Validation**:
+  - [React Hook Form](https://react-hook-form.com/)
+  - [Yup](https://github.com/jquense/yup)
+- **Charts**: [Chart.js](https://www.chartjs.org/)
+- **Testing**:
+  - [Jest](https://jestjs.io/)
+  - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- **Code Quality**:
+  - ESLint
+  - Prettier
+- **Deployment**: [Vercel](https://vercel.com/)
+
+## 📦 Weather Data Source
+
+Weather data is provided by the [OpenWeatherMap API](https://openweathermap.org/api):
+
+- `/weather` — for current weather conditions
+- `/forecast` — for 3-hour interval forecasts (used in the temperature chart)
+
+## 🧑‍💻 How to Run Locally
 
 ```bash
+git clone https://github.com/PolinaIgrushkina/weather-app.git
+cd weather-app
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧪 Run Tests
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run test
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📱 Mobile Support
 
-## Learn More
+The application is fully responsive and optimized for mobile devices.
 
-To learn more about Next.js, take a look at the following resources:
+## 📌 Implemented Functionality
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- ✅ Weather cards with update and delete buttons
+- ✅ Add/remove cities with persisted state
+- ✅ Hourly temperature chart with /forecast API
+- ✅ Zustand + persist for localStorage
+- ✅ Clean, formatted codebase using ESLint + Prettier
+- ✅ Tests for key components
+- ✅ Functional components with React Hooks
+- ✅ Deployed to Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Made with ❤️ by [Polina Igrushkina](https://github.com/PolinaIgrushkina)
