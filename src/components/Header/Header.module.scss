@@ -1,0 +1,30 @@
+@use "@/styles/variables" as *;
+@use "@/styles/media" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba($bg-accent, 0.5);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  @include media-down("tablet") {
+    padding-block: 12px;
+  }
+
+  &__holder {
+    padding-block: 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    color: $accent-color;
+
+    @include media-down("mobile") {
+      gap: 12px;
+      padding-block: 16px;
+    }
+  }
+}

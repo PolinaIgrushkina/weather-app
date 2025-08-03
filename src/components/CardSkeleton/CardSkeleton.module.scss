@@ -1,0 +1,61 @@
+@use "@/styles/variables" as *;
+
+@mixin skeleton-block($width, $height) {
+  width: $width;
+  height: $height;
+  border-radius: 4px;
+  background-color: $color-skeleton;
+  animation: pulse 1.6s infinite ease-in-out;
+}
+
+.skeleton {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  border-radius: $border-radius-lg;
+  background-color: $bg-card;
+  border: 1px solid $color-divider;
+
+  .header,
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+  }
+
+  .title {
+    @include skeleton-block(60%, 36px);
+  }
+
+  .icon {
+    @include skeleton-block(70px, 70px);
+    border-radius: 50%;
+  }
+
+  .line {
+    @include skeleton-block(80%, 29px);
+  }
+
+  .updateBtn {
+    margin-top: 8px;
+    @include skeleton-block(80%, 52px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

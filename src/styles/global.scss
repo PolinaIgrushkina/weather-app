@@ -1,0 +1,135 @@
+@use "variables" as *;
+@use "functions" as *;
+@use "media" as *;
+@use "titles" as *;
+@use "buttons" as *;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  max-width: 100dvw;
+}
+
+main {
+  flex: 1;
+}
+
+html {
+  font-size: $main-font-size;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: $color-text-primary;
+  background-color: $bg-default;
+  font-family: var(--font-inter);
+  font-size: to-rem(18);
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @include media-down("tablet") {
+    font-size: to-rem(16);
+  }
+}
+
+.container {
+  width: min(100%, #{$containerWidth}px);
+  max-width: 100%;
+  margin: 0 auto;
+  padding-inline: #{$containerPadding}px;
+
+  @include media-down("mobile") {
+    padding-inline: #{$containerPaddingMobile}px;
+  }
+}
+
+.section {
+  padding-block: 60px;
+  scroll-margin-top: $header-height-desktop;
+
+  @include media-down("tablet") {
+    scroll-margin-top: $header-height-tablet;
+  }
+
+  @include media-down("mobile") {
+    padding-block: 40px;
+    scroll-margin-top: $header-height-mobile;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+}
+
+ul,
+ol {
+  margin: 0;
+
+  &:not(.unmarked) {
+    li {
+      margin-left: 24px;
+    }
+  }
+
+  &.unmarked {
+    list-style: none;
+  }
+}
+
+ul:not(.unmarked) {
+  list-style: disc;
+
+  li {
+    @include media-down("tablet") {
+      &::marker {
+        font-size: medium;
+      }
+    }
+  }
+}
+
+* {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+
+    @include media-down("tablet") {
+      width: 4px;
+      height: 4px;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $accent-color;
+    border-radius: 4px;
+  }
+
+  @supports not selector(::-webkit-scrollbar-thumb) {
+    scrollbar-color: $accent-color transparent;
+    scrollbar-width: thin;
+  }
+}

@@ -1,0 +1,72 @@
+@use "@/styles/variables" as *;
+
+.card {
+  position: relative;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  border-radius: $border-radius-lg;
+  background-color: $bg-card;
+  border: 1px solid $color-divider;
+  color: $color-text-secondary;
+  transition: $transition;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+
+    .card__deleteBtn {
+      opacity: 1;
+      pointer-events: all;
+      visibility: visible;
+    }
+  }
+
+  &__header,
+  &__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__main {
+    span {
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &__updateBtn {
+    margin-top: 8px;
+  }
+
+  &__deleteBtn {
+    cursor: pointer;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: $transition;
+    color: $color-text-secondary;
+
+    &:hover,
+    &:focus {
+      color: $red;
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  :global(.title--05) {
+    color: $accent-color;
+  }
+}

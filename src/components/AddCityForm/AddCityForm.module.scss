@@ -1,0 +1,68 @@
+@use "@/styles/variables" as *;
+@use "@/styles/functions" as *;
+@use "@/styles/media" as *;
+
+.form {
+  &__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 50%;
+  }
+
+  &__form {
+    display: flex;
+    align-items: stretch;
+
+    :global(.button--accent) {
+      flex-shrink: 0;
+      border-radius: 0 $border-radius-lg $border-radius-lg 0;
+    }
+  }
+
+  &__formActive {
+    .form__input {
+      border-radius: $border-radius-lg 0 0 0;
+    }
+
+    :global(.button--accent) {
+      border-radius: 0 $border-radius-lg 0 0;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: 12px 24px;
+    background-color: $bg-default;
+    border: 1px solid $color-divider;
+    outline: 0;
+    border-radius: $border-radius-lg 0 0 $border-radius-lg;
+    color: $color-text-secondary;
+    font-size: to-rem(18);
+    line-height: 1.5;
+    font-weight: 400;
+    font-family: var(--font-inter);
+
+    &::placeholder {
+      color: $color-text-secondary;
+      font: inherit;
+    }
+
+    @include media-down("tablet") {
+      font-size: to-rem(16);
+      line-height: 1.5;
+    }
+  }
+
+  &__inputError {
+    border-color: $red;
+    outline: none;
+  }
+
+  &__error {
+    color: $red;
+    margin-top: 4px;
+    font-size: 14px;
+  }
+}

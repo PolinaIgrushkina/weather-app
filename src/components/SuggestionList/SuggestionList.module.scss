@@ -1,0 +1,48 @@
+@use "@/styles/variables" as *;
+
+.suggestions {
+  &__list {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateY(100%);
+    border: 1px solid $color-divider;
+    border-radius: 0 0 $border-radius-lg $border-radius-lg;
+    max-height: 180px;
+    overflow-y: auto;
+    // background-color: $bg-default;
+    width: 100%;
+    z-index: 9;
+    transition: $transition;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $accent-color;
+      border-radius: 4px;
+    }
+
+    @supports not selector(::-webkit-scrollbar-thumb) {
+      scrollbar-color: $accent-color transparent;
+      scrollbar-width: thin;
+    }
+  }
+
+  &__item {
+    cursor: pointer;
+    padding: 8px 12px;
+    background-color: $bg-default;
+
+    &:hover,
+    &:focus {
+      background-color: $color-skeleton;
+    }
+  }
+}

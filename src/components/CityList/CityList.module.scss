@@ -1,0 +1,16 @@
+@use "@/styles/media" as *;
+
+.list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+
+  @include media-down("tablet") {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media-down("mobile") {
+    grid-template-columns: 1fr;
+  }
+}

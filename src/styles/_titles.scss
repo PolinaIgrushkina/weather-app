@@ -1,0 +1,110 @@
+@use "variables" as *;
+@use "functions" as *;
+@use "media" as *;
+
+.title {
+  font-family: var(--font-kanit);
+  font-weight: 500;
+  font-style: normal;
+  text-transform: capitalize;
+
+  strong {
+    color: $accent-color;
+    font-weight: inherit;
+  }
+}
+
+.title--01 {
+  @extend .title;
+  font-size: to-rem(72);
+  line-height: 1;
+
+  @include media-down("tablet") {
+    font-size: to-rem(56);
+  }
+
+  @include media-down("mobile") {
+    font-size: to-rem(40);
+  }
+}
+
+.title--02 {
+  @extend .title;
+  font-family: var(--font-kanit);
+  font-weight: 400;
+  font-size: to-rem(56);
+  line-height: 1.14;
+
+  @include media-down("tablet") {
+    font-size: to-rem(44);
+    line-height: 1.18;
+  }
+
+  @include media-down("mobile") {
+    font-size: to-rem(32);
+    line-height: 1.25;
+  }
+}
+
+.title--03 {
+  @extend .title;
+  font-size: to-rem(40);
+  line-height: 1.2;
+  font-weight: 400;
+
+  @include media-down("tablet") {
+    font-size: to-rem(32);
+    line-height: 1.25;
+  }
+
+  @include media-down("mobile") {
+    font-size: to-rem(28);
+    line-height: 1.14;
+  }
+}
+
+.title--04 {
+  @extend .title;
+  font-size: to-rem(32);
+  line-height: 1.25;
+
+  @include media-down("tablet") {
+    font-size: to-rem(28);
+    line-height: 1.29;
+  }
+
+  @include media-down("mobile") {
+    font-size: to-rem(24);
+    line-height: 1.33;
+  }
+}
+
+.title--05 {
+  @extend .title;
+  font-weight: 400;
+  font-size: to-rem(28);
+  line-height: 1.29;
+  text-transform: none;
+
+  @include media-down("mobile") {
+    font-size: to-rem(24);
+    line-height: 1.33;
+  }
+}
+
+.title--06 {
+  @extend .title;
+  font-weight: 400;
+  font-size: to-rem(22);
+  line-height: 1.18;
+
+  @include media-down("tablet") {
+    font-size: to-rem(20);
+    line-height: 1.2;
+  }
+
+  @include media-down("mobile") {
+    font-size: to-rem(18);
+    line-height: 1.33;
+  }
+}

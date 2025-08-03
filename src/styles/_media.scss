@@ -1,0 +1,26 @@
+@use "variables" as *;
+@use "sass:map";
+
+@function get-breakpoint($key) {
+  @if map.has-key($breakpoints, $key) {
+    @return map.get($breakpoints, $key);
+  }
+
+  @return $key;
+}
+
+@mixin media-down($key) {
+  $value: get-breakpoint($key);
+
+  @media (max-width: #{$value}px) {
+    @content;
+  }
+}
+
+@mixin media-up($key) {
+  $value: get-breakpoint($key);
+
+  @media (min-width: #{$value}px) {
+    @content;
+  }
+}

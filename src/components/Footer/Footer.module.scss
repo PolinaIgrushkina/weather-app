@@ -1,0 +1,25 @@
+@use "@/styles/variables" as *;
+
+.footer {
+  background-color: $bg-accent;
+
+  &__holder {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    :global(.button--accent) {
+      padding: 12px;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 12px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
