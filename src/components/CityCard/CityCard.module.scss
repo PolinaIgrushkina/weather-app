@@ -13,14 +13,17 @@
   color: $color-text-secondary;
   transition: $transition;
 
-  &:hover,
-  &:focus {
-    box-shadow: 0 4px 16px rgba(106, 104, 104, 0.393);
+  @media (hover: hover) {
 
-    .card__deleteBtn {
-      opacity: 1;
-      pointer-events: all;
-      visibility: visible;
+    &:hover,
+    &:focus {
+      box-shadow: 0 4px 16px rgba(106, 104, 104, 0.393);
+
+      .card__deleteBtn {
+        opacity: 1;
+        pointer-events: all;
+        visibility: visible;
+      }
     }
   }
 
@@ -63,6 +66,14 @@
     svg {
       width: 16px;
       height: 16px;
+    }
+  }
+
+  @media (hover: none) {
+    .card__deleteBtn {
+      opacity: 1;
+      pointer-events: all;
+      visibility: visible
     }
   }
 

@@ -24,11 +24,13 @@ export const TemperatureChart: React.FC<TemperatureChartProps> = ({ data }) => {
         <LineChart data={chartData}>
           <XAxis
             dataKey="time"
+            height={50}
+            padding={{ left: 40, right: 40 }}
             tick={({ x, y, payload }) => {
-              const [time, date] = payload.value.split("\n");
+              const [time, date] = payload.value.split(", ");
               return (
-                <g transform={`translate(${x},${y + 10})`}>
-                  <text x={0} y={0} textAnchor="middle" fill="#555353">
+                <g transform={`translate(${x},${y + 20})`}>
+                  <text x={0} y={0} textAnchor="middle" fill="#666">
                     <tspan x={0} dy={0}>
                       {time}
                     </tspan>
