@@ -84,7 +84,6 @@
   font-weight: 400;
   font-size: to-rem(28);
   line-height: 1.29;
-  text-transform: none;
 
   @include media-down("mobile") {
     font-size: to-rem(24);

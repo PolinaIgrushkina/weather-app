@@ -1,20 +1,13 @@
 "use client";
-import { useCityStore } from "@/store/cityStore";
+import React from "react";
 import isEmpty from "is-empty";
-import { useQueryClient } from "@tanstack/react-query";
-import styles from "./CityList.module.scss";
+import { useCityStore } from "@/store/cityStore";
 import { CityCard } from "../CityCard";
+import styles from "./CityList.module.scss";
 
 export const CityList = () => {
   const cities = useCityStore((state) => state.cities);
   const removeCity = useCityStore((state) => state.removeCity);
-  const queryClient = useQueryClient();
-
-  const handleRefetchAll = () => {
-    cities.forEach((city) => {
-      queryClient.invalidateQueries({ queryKey: ["weather", city] });
-    });
-  };
 
   return (
     <div className={styles.list}>
@@ -26,11 +19,6 @@ export const CityList = () => {
             onDelete={(cityToDelete) => removeCity(cityToDelete)}
           />
         ))}
-      {!isEmpty(cities) && (
-        <button onClick={handleRefetchAll}>
-          Update weather for all cities
-        </button>
-      )}
     </div>
   );
 };

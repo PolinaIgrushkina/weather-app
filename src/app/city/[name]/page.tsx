@@ -35,7 +35,7 @@ export default async function CityDetailPage({ params }: CityDetailPageProps) {
       <>
         <section className={`${styles.main__section} section`}>
           <h1 className="title--02">
-            Weather in <strong>{city}</strong> for the Next 24 Hours
+            Weather in <strong>{city}</strong>
           </h1>
           <WeatherSummary data={weatherSummaryData} />
           <TemperatureChart data={forecast} />

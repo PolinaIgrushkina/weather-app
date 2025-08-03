@@ -39,13 +39,21 @@ export const CityCard = ({ city, onDelete }: WeatherCardProps) => {
       </div>
       <button
         className={`${styles.card__updateBtn} button--accent`}
-        onClick={() => refetch()}
+        onClick={(e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          refetch();
+        }}
       >
         <span>Update weather</span>
       </button>
       <button
         className={styles.card__deleteBtn}
-        onClick={() => onDelete(city)}
+        onClick={(e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          onDelete(city);
+        }}
         aria-label={`Delete ${city}`}
       >
         <RiDeleteBin5Line />

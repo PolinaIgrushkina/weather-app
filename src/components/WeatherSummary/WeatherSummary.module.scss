@@ -1,4 +1,5 @@
 @use "@/styles/functions" as *;
+@use "@/styles/media" as *;
 
 .weatherSummary {
   &__container {
@@ -8,18 +9,16 @@
     gap: 12px;
     font-size: to-rem(24);
     line-height: 1.5;
+
+    @include media-down("mobile") {
+      font-size: to-rem(16);
+    }
   }
 
   &__header {
     display: flex;
     align-items: center;
     gap: 12px;
-
-    :global(.title--05) {
-      &::first-letter {
-        text-transform: capitalize;
-      }
-    }
   }
 
   &__main {
