@@ -3,7 +3,7 @@ import styles from "./CardSkeleton.module.scss";
 
 export const CardSkeleton = () => {
   return (
-    <div className={styles.skeleton}>
+    <div className={styles.skeleton} data-testid="skeleton">
       <div className={styles.header}>
         <div className={styles.title} />
         <div className={styles.icon} />
