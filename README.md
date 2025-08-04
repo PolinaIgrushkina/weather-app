@@ -2,7 +2,7 @@
 
 A single-page weather forecast application built with **Next.js**.
 
-🔗 **Live demo**: [weather-app-polinaigrushkinas-projects.vercel.app](https://weather-app-polinaigrushkinas-projects.vercel.app/)
+🔗 **Live demo**: [polina-igrushkina-weather-app.vercel.app](https://polina-igrushkina-weather-app.vercel.app/)
 
 ## ✨ Features
 
